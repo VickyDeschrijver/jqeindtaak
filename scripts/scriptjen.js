@@ -105,7 +105,10 @@ $(function() {
     },
     errorContainer: $foutBoks,
     errorLabelContainer:    $("ul", $foutBoks),
-    wrapper:        "li"    
+    wrapper:        "li",  
+    submitHandler:  function(form) {
+            form.submit();
+        }
     });     // einde valideer frmVlucht
     
     // validatie form CHECKIN
@@ -140,20 +143,14 @@ $(function() {
         },
         errorContainer: $foutBoks2,
         errorLabelContainer:    $("ul", $foutBoks2),
-        wrapper:        "li"    
-            
-       
+        wrapper:        "li",    
+        submitHandler:  function(form) {
+            form.submit();
+        }       
     });     // einde valideer frmCheckin
     
     // Slideshow
-//    $("#bulletLooper").on('shown', function(e){
-//        $('.looper-nav > li', this)
-//                .removeClass('active')
-//                .eq(e.relatedIndex)
-//                .addClass('active');
-//    });
-    
-    // form theme
+    $( '.mySlideshows' ).cycle();
     
    
 

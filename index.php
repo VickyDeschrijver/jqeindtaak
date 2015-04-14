@@ -7,9 +7,7 @@
 <title>Sardine Airways: jQuery eindtaak</title>
 
 <!-- Stylesheets --> 
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
 <link rel='stylesheet' type='text/css' href='jquery/jquery-ui-1.11.4.custom/jquery-ui.css' />
-<link rel="stylesheet" type="text/css" href="jquery/looper/src/looper.css" />
 <link rel='stylesheet' type="text/css"  href="css/eindtaak.css"/>
 
 <!-- Scripts --> 
@@ -18,7 +16,7 @@
 <script type="text/javascript" src="jquery/jquery-ui-1.11.4.custom/jquery-ui.min.js"> </script>
 <script type="text/javascript" src="scripts/scriptjen.js"></script>
 <script type="text/javascript" src="jquery/validation/dist/jquery.validate.min.js"></script>
-<!-- <script type="text/javascript" src="jquery/looper/src/looper.min.js"></script> -->
+<script type="text/javascript" src="jquery/jquery.cycle2.js"></script>
 
 
 <!-- localisation files datepicker -->
@@ -34,31 +32,11 @@
     <div id="tester" style="display:none">tester element</div>
     <div id="midden">
       
-        <!-- slider foto's --> 
-        <div data-looper="go" class="looper slide" id="bulletLooper">
-            <div class="looper-inner">
-                <div class="item">
-                    <img src="images/sardines1.jpg" alt="sardines" />
-                </div>
-                <div class="item">
-                    <img src="images/sardines2.jpg" alt="sardines" />
-                </div>
-                <div class="item">
-                    <img src="images/sardines3.jpg" alt="sardines" />
-                </div>
-                <div class="item">
-                    <img src="images/sardines4.jpg" alt="sardines" />
-                </div>
-            </div>
-            <nav>
-                <a class="looper-control" data-looper="prev" href="#bulletLooper">
-                    <i class="fa fa-backward"></i>
-                </a>
-                <a class="looper-control right" data-looper="next" href="#bulletLooper">
-                    <i class="fa fa-forward"></i>
-                </a>
-                
-            </nav>
+        <div class="slideshow" id="prent" data-cycle-fx=carousel data-cycle-timeout=1000>
+            <img src="images/sardines1.jpg" />
+            <img src="images/sardines2.jpg" />
+            <img src="images/sardines3.jpg" />
+            <img src="images/sardines4.jpg" />
         </div>
         
         
