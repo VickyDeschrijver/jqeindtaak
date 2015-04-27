@@ -8,7 +8,8 @@
 
 <!-- Stylesheets --> 
 <link rel='stylesheet' type='text/css' href='jquery/jquery-ui-1.11.4.custom/jquery-ui.css' />
-<link rel='stylesheet' type="text/css"  href="css/eindtaak.css"/>
+<link rel='stylesheet' type="text/css" href="css/eindtaak.css"/>
+<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.3/fotorama.css" rel="stylesheet" />
 
 <!-- Scripts --> 
 <script type="text/javascript" src="scripts/modernizr-2.6.2.min.js"></script>
@@ -16,7 +17,7 @@
 <script type="text/javascript" src="jquery/jquery-ui-1.11.4.custom/jquery-ui.min.js"> </script>
 <script type="text/javascript" src="scripts/scriptjen.js"></script>
 <script type="text/javascript" src="jquery/validation/dist/jquery.validate.min.js"></script>
-<script type="text/javascript" src="jquery/jquery.cycle2.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.3/fotorama.js"></script>
 
 
 <!-- localisation files datepicker -->
@@ -32,7 +33,7 @@
     <div id="tester" style="display:none">tester element</div>
     <div id="midden">
       
-        <div class="slideshow" id="prent" data-cycle-fx=carousel data-cycle-timeout=1000>
+        <div class="fotorama">
             <img src="images/sardines1.jpg" />
             <img src="images/sardines2.jpg" />
             <img src="images/sardines3.jpg" />
@@ -72,7 +73,8 @@
             <p>
               
                <label>heen (datum)</label>
-              <input  class="datum vertrekdatum" type="text" name="vertrekdatum" id="vertrekdatum" /><label class="inline" > retour <input type="checkbox" name="retour" id="retour" /></label>
+               <input  class="datum vertrekdatum" type="text" name="vertrekdatum" id="vertrekdatum" />
+               <label class="inline" > retour <input type="checkbox" name="retour" id="retour" /></label>
              
             </p>
               <p id="retourdatum">

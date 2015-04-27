@@ -2,24 +2,38 @@
  * Javascript voor eindtaak jQuery 
  */
 
+
+
+
 $(function() {
-    // navigatie door tabs
-    $("#inhoud").tabs( {
-        active: 0
-    });
+ 
+
+   
     
     // hide - show retour datum
-    $('#retourdatum').hide();
-     
-    if($('#retour').checked) {
-        $('#retourdatum').show();
-    }
+    $('#retourdatum').show();
+       if(!$('#retour').checked) {
+       $('#retourdatum').hide();
+   }
+   
+   $('#retour').click(function() {
+       $('#retourdatum').toggle(this.checked);
+      if (!this.checked) {
+           $('#terugdatum').val("").datepicker();
+       }
+   });
+   
+   if($('#terugdatum').val("")) {
+       $('#retour').attr('checked', false);
+   }
+  
+
     
-    $('#retour').click(function() {
-        $('#retourdatum').toggle(this.checked);
-        if (!this.checked) {
-            $('#retourdatum').val("");
-        }
+    
+    
+     // navigatie door tabs
+    $("#inhoud").tabs( {
+        active: 0
     });
     
     // Keuzelijst LANDEN invullen
@@ -52,20 +66,61 @@ $(function() {
     
     // datecontrol op data velden (function onder doc ready
     $.datepicker.setDefaults($.datepicker.regional['nl-BE']);
-    $(".vertrekdatum").datepicker( {
+    
+        // datepicker vlucht boeken
+        $("#vertrekdatum").datepicker( {
             dateFormat:     "yy-mm-dd",
             changeMonth:    true,
             changeYear:     true,
             minDate:        new Date(),
             maxDate:        "+1y"
         });
-
-        // datepicker retours
-        $('.vertrekdatum').change(function() {
-            $('.terugdatum').val("").datepicker("destroy");     // resetten 'terug' wanneer start w aangepast
-            $('.terugdatum').datepicker({
+        
+        $('#vertrekdatum').change(function() {
+            $('#terugdatum').val("").datepicker("refresh");                     // resetten 'terug' wanneer start w aangepast
+            $('#terugdatum').datepicker({
                 dateFormat:     "yy-mm-dd",
-                minDate:        $('.datum').datepicker("getDate"),
+                minDate:        $('#vertrekdatum').datepicker("getDate"),
+                maxDate:        "+1y",
+                changeMonth:    true,
+                changeYear:     true
+            });
+        });  
+       
+       // datepicker zoek hotel
+       $("#checkindatum").datepicker( {
+            dateFormat:     "yy-mm-dd",
+            changeMonth:    true,
+            changeYear:     true,
+            minDate:        new Date(),
+            maxDate:        "+1y"
+        });
+        
+       $('#checkindatum').change(function() {
+            $('#checkoutdatum').val("").datepicker("refresh");                  // resetten 'terug' wanneer start w aangepast
+            $('#checkoutdatum').datepicker({
+                dateFormat:     "yy-mm-dd",
+                minDate:        $('#checkindatum').datepicker("getDate"),
+                maxDate:        "+1y",
+                changeMonth:    true,
+                changeYear:     true
+            });
+        });  
+        
+        // datepicker wagen boeken
+       $("#pickupdatum").datepicker( {
+            dateFormat:     "yy-mm-dd",
+            changeMonth:    true,
+            changeYear:     true,
+            minDate:        new Date(),
+            maxDate:        "+1y"
+        });
+        
+       $('#pickupdatum').change(function() {
+            $('#dropoffdatum').val("").datepicker("refresh");     // resetten 'terug' wanneer start w aangepast
+            $('#dropoffdatum').datepicker({
+                dateFormat:     "yy-mm-dd",
+                minDate:        $('#pickupdatum').datepicker("getDate"),
                 maxDate:        "+1y",
                 changeMonth:    true,
                 changeYear:     true
@@ -150,7 +205,19 @@ $(function() {
     });     // einde valideer frmCheckin
     
     // Slideshow
-    $( '.mySlideshows' ).cycle();
+    // http://fotorama.io/
+    $('.fotorama').fotorama({
+        width:              700,
+        maxwidth:           '100%',
+        nav:                false,
+        autoplay:           true,
+        stopautoplayontouch:true,
+        click:              false,
+        loop:               true,
+        transition:         "dissolve"
+
+        
+      });
     
    
 
@@ -159,4 +226,6 @@ $(function() {
     
     
 }); // einde doc ready
+
+
 
